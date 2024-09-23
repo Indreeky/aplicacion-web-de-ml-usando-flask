@@ -86,3 +86,12 @@ Para procesar datos, puedes modificar el script app.py para incluir tus pasos de
 Esta plantilla fue construida como parte del [Data Science and Machine Learning Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning) de 4Geeks Academy por [Alejandro Sanchez](https://twitter.com/alesanchezr) y muchos otros contribuyentes. Descubre más sobre [los programas BootCamp de 4Geeks Academy](https://4geeksacademy.com/us/programs) aquí.
 
 Otras plantillas y recursos como este se pueden encontrar en la página de GitHub de la escuela.
+
+
+
+
+
+
+## Aplicación en Vivo
+
+Puedes probar la aplicación en vivo aquí: [Aplicación Web de ML usando Flask](https://aplicacion-web-de-ml-usando-flask-g0lf.onrender.com)
