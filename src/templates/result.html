@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de la Predicción</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5 text-center">
+        <h1>Resultado: {{ prediction }}</h1>
+        <img src="{{ url_for('uploaded_file', filename=image_filename) }}" alt="Imagen Subida" class="img-fluid mt-3" style="max-width: 400px;">
+        <div class="mt-4">
+            <a href="/" class="btn btn-secondary">Subir otra imagen</a>
+        </div>
+    </div>
+</body>
+</html>
