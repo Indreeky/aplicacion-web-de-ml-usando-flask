@@ -20,9 +20,16 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Cargar el modelo
+# Cargar el modelo globalmente (inicialmente es None)
+model = None
 MODEL_PATH = os.path.join(os.getcwd(), 'model_transfer.keras')
-model = load_model(MODEL_PATH)
+
+# Función para cargar el modelo solo una vez
+def load_model_once():
+    global model
+    if model is None:
+        model = load_model(MODEL_PATH)
+    return model
 
 # Ruta principal
 @app.route('/', methods=['GET'])
@@ -49,11 +56,12 @@ def predict():
 
         # Procesar la imagen para la predicción
         img = Image.open(filepath)
-        img = img.resize((100, 100))
+        img = img.resize((100, 100))  # Redimensionar a 100x100
         img = img_to_array(img)
         img = np.expand_dims(img, axis=0) / 255.0
 
-        # Realizar la predicción con el modelo
+        # Cargar el modelo y realizar la predicción
+        model = load_model_once()  # Carga el modelo solo si no está cargado
         pred = model.predict(img)
         pred_class = 'Perro' if pred > 0.5 else 'Gato'
 
